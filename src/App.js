@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState("");
   const [convertFrom, setConvertFrom] = useState("USD");
   const [convertTo, setConvertTo] = useState("EUR");
 
@@ -36,6 +36,7 @@ export default function App() {
 
       if (convertFrom === convertTo) return setOutput(amount);
 
+      if (!amount) return;
       convertAmount();
     },
     [amount, convertFrom, convertTo]
